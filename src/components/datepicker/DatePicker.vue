@@ -42,7 +42,7 @@
   import DateView from './DateView.vue'
   import MonthView from './MonthView.vue'
   import YearView from './YearView.vue'
-  import dateUtils from '../../utils/dateUtils'
+  import moment from 'moment'
 
   export default {
     mixins: [Locale],
@@ -86,7 +86,7 @@
     },
     computed: {
       valueDateObj () {
-        let date = new Date(this.value)
+        let date = moment(this.value, this.format).toDate()
         if (isNaN(date.getTime())) {
           return null
         } else {
@@ -118,15 +118,19 @@
       }
     },
     mounted () {
-      this.currentMonth = this.now.getMonth()
-      this.currentYear = this.now.getFullYear()
-      if (!this.value) {
+      if (this.value) {
+        let date = moment(this.value, this.format).toDate()
+        this.currentMonth = date.getMonth()
+        this.currentYear = date.getFullYear()
+      } else {
+        this.currentMonth = this.now.getMonth()
+        this.currentYear = this.now.getFullYear()
         this.view = this.initialView
       }
     },
     watch: {
       value (val, oldVal) {
-        let date = new Date(val)
+        let date = moment(val, this.format).toDate()
         if (!isNaN(date.getTime())) {
           if (this.limit && ((this.limit.from && date < this.limit.from) || (this.limit.to && date >= this.limit.to))) {
             this.$emit('input', oldVal || '')
@@ -151,7 +155,7 @@
           typeof date.month === 'number' &&
           typeof date.year === 'number') {
           let _date = new Date(date.year, date.month, date.date)
-          this.$emit('input', dateUtils.stringify(_date, this.format))
+          this.$emit('input', moment(_date).format(this.format))
         } else {
           this.$emit('input', '')
         }
