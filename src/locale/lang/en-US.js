@@ -1,36 +1,36 @@
 export default {
   uiv: {
     datePicker: {
-      clear: 'Clear',
-      today: 'Today',
-      month: 'Month',
-      month1: 'January',
-      month2: 'February',
-      month3: 'March',
+      clear: 'Reset',
+      today: 'Vandaag',
+      month: 'Maand',
+      month1: 'Januari',
+      month2: 'Februari',
+      month3: 'Maart',
       month4: 'April',
-      month5: 'May',
-      month6: 'June',
-      month7: 'July',
-      month8: 'August',
+      month5: 'Mei',
+      month6: 'Juni',
+      month7: 'Juli',
+      month8: 'Augustus',
       month9: 'September',
-      month10: 'October',
+      month10: 'Oktober',
       month11: 'November',
       month12: 'December',
-      year: 'Year',
-      week1: 'Mon',
-      week2: 'Tue',
-      week3: 'Wed',
-      week4: 'Thu',
-      week5: 'Fri',
-      week6: 'Sat',
-      week7: 'Sun'
+      year: 'Jaar',
+      week1: 'Ma',
+      week2: 'Di',
+      week3: 'Wo',
+      week4: 'Do',
+      week5: 'Vr',
+      week6: 'Za',
+      week7: 'Zo'
     },
     timePicker: {
       am: 'AM',
       pm: 'PM'
     },
     modal: {
-      cancel: 'Cancel',
+      cancel: 'Annuleer',
       ok: 'OK'
     }
   }
